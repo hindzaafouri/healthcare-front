@@ -1,0 +1,48 @@
+<app-all-template-client></app-all-template-client>
+
+ <!-- Start Service Section -->
+ <section id="appointment" class="st-shape-wrap st-gray-bg">
+  <div class="st-shape4">
+    
+  </div>
+  <div class="st-shape6">
+    <img src="assets/frontTemplate/img/shape/contact-shape3.svg" alt="shape3">
+  </div>
+  <div class="st-height-b120 st-height-lg-b80"></div>
+  <div class="container">
+    <div class="st-section-heading st-style1">
+      <h2 class="st-section-heading-title">Calendar</h2>
+      <div class="st-seperator">
+        <div class="st-seperator-left wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s"></div>
+        <div class="st-seperator-right wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s"></div>
+      </div>
+      <div class="st-section-heading-subtitle"></div>
+    </div>
+    <div class="st-height-b40 st-height-lg-b40"></div>
+  </div>
+ 
+
+
+<div class="container">
+    <div class="row">
+      <div class="date">
+      <h2>
+        Mai 3, 2023
+      </h2>
+      <h1>
+        Today
+      </h1>
+    </div>
+      <div class="add-task">
+       
+        <a  href="/Appointment" class="st-btn st-style1 st-color2 st-smooth-move">+ Add Another Appointment</a>
+  
+      </div>
+    </div>
+  
+<div class=" text " style="max-width: 150%;">
+  <full-calendar [options]="calendarOptions"></full-calendar>
+</div>
+    
+  </div>
+  <router-outlet></router-outlet>
