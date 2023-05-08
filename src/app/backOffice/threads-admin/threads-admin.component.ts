@@ -2,11 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Thread } from 'src/models/Thread';
-import { AnswerAdminComponent } from '../answer-admin/answer-admin.component';
-import { threadId } from 'worker_threads';
 import { ThreadService } from 'src/app/services-hind/thread.service';
-import { ChartScales,Chart,ChartConfiguration,ChartOptions,ChartData } from 'chart.js';
-import { Observable } from 'rxjs';
+// import { Chart,ChartConfiguration } from 'chart.js';
 
 @Component({
   selector: 'app-threads-admin',
@@ -19,7 +16,7 @@ export class ThreadsAdminComponent implements OnInit {
   threads: any[] = [];
   thread!:Thread ;
   isModalOpen = false;
-  chart!: Chart;
+  // chart!: Chart;
   year: number = new Date().getFullYear();
   currentPage = 1;
   itemsPerPage = 5;
@@ -30,7 +27,7 @@ export class ThreadsAdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.getThreads() ; 
-    this.createChart(new Date().getFullYear());
+    // this.createChart(new Date().getFullYear());
   }
   
 
@@ -57,42 +54,42 @@ export class ThreadsAdminComponent implements OnInit {
     );
   }
 
-  createChart(year: number): void {
-    this.threadService.getThreadCountsByMonthInYear(year).subscribe((monthCounts) => {
-      const chartData = {
-        labels: monthCounts.map(monthCount => monthCount.month),
-        datasets: [
-          {
-            label: `Number of Threads in ${year}`,
-            data: monthCounts.map(monthCount => monthCount.count),
-            backgroundColor: '#0694a2',
-            borderColor: '#0694a2',
-            fill: false
-          }
-        ]
-      };
+  // createChart(year: number): void {
+  //   this.threadService.getThreadCountsByMonthInYear(year).subscribe((monthCounts) => {
+  //     const chartData = {
+  //       labels: monthCounts.map(monthCount => monthCount.month),
+  //       datasets: [
+  //         {
+  //           label: `Number of Threads in ${year}`,
+  //           data: monthCounts.map(monthCount => monthCount.count),
+  //           backgroundColor: '#0694a2',
+  //           borderColor: '#0694a2',
+  //           fill: false
+  //         }
+  //       ]
+  //     };
 
-      const chartConfig: ChartConfiguration = {
-        type: 'line',
-        data: chartData,
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
-            }]
-          }
-        }
-      };
-      if (this.chart) {
-        this.chart.destroy();
-      }
+  //     const chartConfig: ChartConfiguration = {
+  //       type: 'line',
+  //       data: chartData,
+  //       options: {
+  //         scales: {
+  //           yAxes: [{
+  //             ticks: {
+  //               beginAtZero: true
+  //             }
+  //           }]
+  //         }
+  //       }
+  //     };
+  //     if (this.chart) {
+  //       this.chart.destroy();
+  //     }
 
-      const canvas = document.getElementById('line-chart') as HTMLCanvasElement;
-      this.chart = new Chart(canvas, chartConfig);
-    });
-  }
+  //     const canvas = document.getElementById('line-chart') as HTMLCanvasElement;
+  //     this.chart = new Chart(canvas, chartConfig);
+  //   });
+  // }
   
   /*line(timeFrame: string = 'day'): void {
     let labelFormat: string;
